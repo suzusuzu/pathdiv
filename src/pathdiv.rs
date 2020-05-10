@@ -1,3 +1,20 @@
+//! This library provides an API similar to pathlib of python.
+//! "/" can be used to join the path.
+//! [`PathDiv`] is a wrapper for [`PathBuf`].
+//!
+//!
+//! # Examples
+//!
+//! ```
+//! use pathdiv::PathDiv;
+//!
+//! let mut path = PathDiv::from("/etc");
+//! path = path / "init.d";
+//! path /= "ssh";
+//! println!("{}", path); // "/etc/init.d/init.d/ssh"
+//! ```
+//!
+
 use std::ops;
 use std::ops::Div;
 use std::ops::DivAssign;
@@ -21,6 +38,23 @@ use std::hash::Hash;
 use std::hash::Hasher;
 
 
+///
+/// This library provides an API similar to pathlib of python.
+/// "/" can be used to join the path.
+/// [`PathDiv`] is a wrapper for [`PathBuf`].
+///
+///
+/// # Examples
+///
+/// ```
+/// use pathdiv::PathDiv;
+///
+/// let mut path = PathDiv::from("/etc");
+/// path = path / "init.d";
+/// path /= "ssh";
+/// println!("{}", path); // "/etc/init.d/init.d/ssh"
+/// ```
+///
 #[derive(Debug, Clone, Eq, PartialEq, PartialOrd)]
 pub struct PathDiv(PathBuf);
 
@@ -342,7 +376,7 @@ impl_cmp!(PathDiv, &'a Path);
 impl_cmp!(Cow<'a, Path>, PathDiv);
 
 
-impl<T> Div<T> for PathDiv 
+impl<T> Div<T> for PathDiv
 where
     T: AsRef<Path> + Sized
 {
@@ -354,7 +388,7 @@ where
     }
 }
 
-impl<T> Div<T> for &PathDiv 
+impl<T> Div<T> for &PathDiv
 where
     T: AsRef<Path> + Sized
 {
@@ -367,7 +401,7 @@ where
     }
 }
 
-impl<T> DivAssign<T> for PathDiv 
+impl<T> DivAssign<T> for PathDiv
 where
     T: AsRef<Path> + Sized
 {
