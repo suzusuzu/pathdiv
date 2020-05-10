@@ -180,14 +180,14 @@ impl From<PathDiv> for Box<Path> {
     }
 }
 
-/*
 impl From<PathDiv> for OsString {
     /// Converts a `PathDiv` into a `OsString`
     fn from(path_buf: PathDiv) -> OsString {
-        PathBuf::from(path_buf.0)
+        path_buf.0.as_os_str().to_os_string()
     }
 }
 
+/*
 impl<'a> From<PathDiv> for Cow<'a, Path> {
     #[inline]
     fn from(s: PathDiv) -> Cow<'a, Path> {
