@@ -15,7 +15,7 @@
 //! let mut path = PathDiv::from("/etc");
 //! path = path / "init.d";
 //! path /= "ssh";
-//! println!("{}", path); // "/etc/init.d/init.d/ssh"
+//! println!("{}", path); // "/etc/init.d/ssh"
 //! ```
 //!
 
