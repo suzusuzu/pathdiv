@@ -1,6 +1,6 @@
 # pathdiv
 
-![Rust](https://github.com/suzusuzu/pathdiv/workflows/Rust/badge.svg)
+![Rust](https://github.com/suzusuzu/pathdiv/workflows/Rust/badge.svg)[![Document](https://docs.rs/pathdiv/badge.svg)](https://docs.rs/pathdiv)
 
 This library provides an API similar to pathlib of python.
 "/" can be used to join the path.
